@@ -1,0 +1,121 @@
+# Machine-readable catalog for future site or dashboard generation.
+
+[[primer]]
+name = "blender"
+language = "Python"
+path = "../blender-primer"
+
+[[primer]]
+name = "dagster"
+language = "Python"
+path = "../dagster-primer"
+
+[[primer]]
+name = "dbt"
+language = "Python"
+path = "../dbt-primer"
+
+[[primer]]
+name = "duckdb"
+language = "Python"
+path = "../duckdb-primer"
+
+[[primer]]
+name = "ep133ko2"
+language = "Python"
+path = "../ep133ko2-primer"
+
+[[primer]]
+name = "fastapi"
+language = "Python"
+path = "../fastapi-primer"
+
+[[primer]]
+name = "grpc"
+language = "Python"
+path = "../grpc-primer"
+
+[[primer]]
+name = "huggingface"
+language = "Python"
+path = "../huggingface-primer"
+
+[[primer]]
+name = "kafka"
+language = "Python"
+path = "../kafka-primer"
+
+[[primer]]
+name = "llama-cpp"
+language = "Python"
+path = "../llama-cpp-primer"
+
+[[primer]]
+name = "nats"
+language = "Python"
+path = "../nats-primer"
+
+[[primer]]
+name = "openai"
+language = "Python"
+path = "../openai-primer"
+
+[[primer]]
+name = "opencv"
+language = "Python"
+path = "../opencv-primer"
+
+[[primer]]
+name = "opentelemetry"
+language = "Python"
+path = "../opentelemetry-primer"
+
+[[primer]]
+name = "polars"
+language = "Python"
+path = "../polars-primer"
+
+[[primer]]
+name = "postgres"
+language = "Python"
+path = "../postgres-primer"
+
+[[primer]]
+name = "pyspark"
+language = "Python"
+path = "../pyspark-primer"
+
+[[primer]]
+name = "pytorch"
+language = "Python"
+path = "../pytorch-primer"
+
+[[primer]]
+name = "ray"
+language = "Python"
+path = "../ray-primer"
+
+[[primer]]
+name = "redis"
+language = "Python"
+path = "../redis-primer"
+
+[[primer]]
+name = "rust"
+language = "Rust"
+path = "../rust-primer"
+
+[[primer]]
+name = "sqlite"
+language = "Python"
+path = "../sqlite-primer"
+
+[[primer]]
+name = "sqlmodel"
+language = "Python"
+path = "../sqlmodel-primer"
+
+[[primer]]
+name = "zeromq"
+language = "Python"
+path = "../zeromq-primer"

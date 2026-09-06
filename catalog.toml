@@ -2,11 +2,14 @@
 
 [[primer]]
 name = "blender"
+title = "Blender"
 language = "Python"
 path = "../blender-primer"
+status = "local"
 
 [[primer]]
 name = "agents"
+title = "Agents SDK"
 language = "Python"
 path = "../agents-primer"
 status = "published"
@@ -16,51 +19,70 @@ release = "v0.1.0"
 
 [[primer]]
 name = "dagster"
+title = "Dagster"
 language = "Python"
 path = "../dagster-primer"
+status = "local"
 
 [[primer]]
 name = "dbt"
+title = "dbt"
 language = "Python"
 path = "../dbt-primer"
+status = "local"
 
 [[primer]]
 name = "duckdb"
+title = "DuckDB"
 language = "Python"
 path = "../duckdb-primer"
+status = "local"
 
 [[primer]]
 name = "ep133ko2"
+title = "EP-133 K.O.II"
 language = "Python"
 path = "../ep133ko2-primer"
+status = "local"
 
 [[primer]]
 name = "fastapi"
+title = "FastAPI"
 language = "Python"
 path = "../fastapi-primer"
+status = "local"
 
 [[primer]]
 name = "grpc"
+title = "gRPC"
 language = "Python"
 path = "../grpc-primer"
+status = "local"
 
 [[primer]]
 name = "huggingface"
+title = "Hugging Face Hub"
 language = "Python"
 path = "../huggingface-primer"
+status = "local"
 
 [[primer]]
 name = "kafka"
+title = "Kafka"
 language = "Python"
 path = "../kafka-primer"
+status = "local"
 
 [[primer]]
 name = "llama-cpp"
+title = "llama.cpp"
 language = "Python"
 path = "../llama-cpp-primer"
+status = "local"
 
 [[primer]]
 name = "nats"
+title = "NATS"
 language = "Python"
 path = "../nats-primer"
 status = "published"
@@ -70,6 +92,7 @@ release = "v0.1.0"
 
 [[primer]]
 name = "openai"
+title = "OpenAI API"
 language = "Python"
 path = "../openai-primer"
 status = "published"
@@ -79,26 +102,35 @@ release = "v0.1.0"
 
 [[primer]]
 name = "opencv"
+title = "OpenCV"
 language = "Python"
 path = "../opencv-primer"
+status = "local"
 
 [[primer]]
 name = "opentelemetry"
+title = "OpenTelemetry"
 language = "Python"
 path = "../opentelemetry-primer"
+status = "local"
 
 [[primer]]
 name = "polars"
+title = "Polars"
 language = "Python"
 path = "../polars-primer"
+status = "local"
 
 [[primer]]
 name = "postgres"
+title = "PostgreSQL"
 language = "Python"
 path = "../postgres-primer"
+status = "local"
 
 [[primer]]
 name = "pyspark"
+title = "PySpark"
 language = "Python"
 path = "../pyspark-primer"
 status = "published"
@@ -108,16 +140,21 @@ release = "v0.1.0"
 
 [[primer]]
 name = "pytorch"
+title = "PyTorch"
 language = "Python"
 path = "../pytorch-primer"
+status = "local"
 
 [[primer]]
 name = "rag"
+title = "RAG"
 language = "Python"
 path = "../rag-primer"
+status = "local"
 
 [[primer]]
 name = "ray"
+title = "Ray"
 language = "Python"
 path = "../ray-primer"
 status = "published"
@@ -127,25 +164,35 @@ release = "v0.1.0"
 
 [[primer]]
 name = "redis"
+title = "Redis"
 language = "Python"
 path = "../redis-primer"
+status = "local"
 
 [[primer]]
 name = "rust"
+title = "Rust"
 language = "Rust"
 path = "../rust-primer"
+status = "local"
 
 [[primer]]
 name = "sqlite"
+title = "SQLite"
 language = "Python"
 path = "../sqlite-primer"
+status = "local"
 
 [[primer]]
 name = "sqlmodel"
+title = "SQLModel"
 language = "Python"
 path = "../sqlmodel-primer"
+status = "local"
 
 [[primer]]
 name = "zeromq"
+title = "ZeroMQ"
 language = "Python"
 path = "../zeromq-primer"
+status = "local"

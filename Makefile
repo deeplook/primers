@@ -13,6 +13,6 @@ lint: ## Compile-check Python sources quietly
 
 test: ## Validate catalog.toml and run unit tests
 	uv run python scripts/catalog.py validate
-	uv run python -m unittest -v
+	uv run python -m unittest discover -s tests -v
 
 check-all: format lint test ## Run the safe quality gate

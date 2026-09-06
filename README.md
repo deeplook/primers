@@ -35,13 +35,3 @@ Each primer owns its dependencies, examples, tests, and release cadence.
 | SQLModel | Python | `../sqlmodel-primer` | Pending | — | — |
 | ZeroMQ | Python | `../zeromq-primer` | Pending | — | — |
 <!-- END GENERATED CATALOG -->
-
-## Policy
-
-This is a catalog, not a parent monorepo. Do not add primers as Git submodules
-or copy their source here. After a primer is published, record its GitHub URL,
-CI badge, and latest GitHub Release here; keep its local path while this
-workspace remains useful.
-
-See the sibling `primer-standards` repository for the shared maintenance
-contract.

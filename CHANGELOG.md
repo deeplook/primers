@@ -11,3 +11,7 @@
 - Generated the README catalog table from `catalog.toml`.
 - Added GitHub Actions CI that validates catalog metadata and README
   generation.
+
+### Changed
+- Removed the maintainer policy section from the README so the catalog
+  page stays reader-facing.

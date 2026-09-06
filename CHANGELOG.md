@@ -9,3 +9,5 @@
   status.
 - Added a dependency-free catalog validator and Markdown renderer.
 - Generated the README catalog table from `catalog.toml`.
+- Added GitHub Actions CI that validates catalog metadata and README
+  generation.

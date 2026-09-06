@@ -6,6 +6,15 @@ language = "Python"
 path = "../blender-primer"
 
 [[primer]]
+name = "agents"
+language = "Python"
+path = "../agents-primer"
+status = "published"
+repository = "https://github.com/deeplook/agents-primer"
+ci_workflow = "check.yml"
+release = "v0.1.0"
+
+[[primer]]
 name = "dagster"
 language = "Python"
 path = "../dagster-primer"
@@ -54,11 +63,19 @@ path = "../llama-cpp-primer"
 name = "nats"
 language = "Python"
 path = "../nats-primer"
+status = "published"
+repository = "https://github.com/deeplook/nats-primer"
+ci_workflow = "ci.yml"
+release = "v0.1.0"
 
 [[primer]]
 name = "openai"
 language = "Python"
 path = "../openai-primer"
+status = "published"
+repository = "https://github.com/deeplook/openai-primer"
+ci_workflow = "check.yml"
+release = "v0.1.0"
 
 [[primer]]
 name = "opencv"
@@ -84,6 +101,10 @@ path = "../postgres-primer"
 name = "pyspark"
 language = "Python"
 path = "../pyspark-primer"
+status = "published"
+repository = "https://github.com/deeplook/pyspark-primer"
+ci_workflow = "ci.yml"
+release = "v0.1.0"
 
 [[primer]]
 name = "pytorch"
@@ -91,9 +112,18 @@ language = "Python"
 path = "../pytorch-primer"
 
 [[primer]]
+name = "rag"
+language = "Python"
+path = "../rag-primer"
+
+[[primer]]
 name = "ray"
 language = "Python"
 path = "../ray-primer"
+status = "published"
+repository = "https://github.com/deeplook/ray-primer"
+ci_workflow = "ci.yml"
+release = "v0.1.0"
 
 [[primer]]
 name = "redis"

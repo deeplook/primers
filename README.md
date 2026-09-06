@@ -5,6 +5,7 @@ Each primer owns its dependencies, examples, tests, and release cadence.
 
 ## Local collection
 
+<!-- BEGIN GENERATED CATALOG -->
 | Primer | Language | Local path | Repository | CI | Latest release |
 |---|---|---|---|---|---|
 | Blender | Python | `../blender-primer` | Pending | — | — |
@@ -33,6 +34,7 @@ Each primer owns its dependencies, examples, tests, and release cadence.
 | SQLite | Python | `../sqlite-primer` | Pending | — | — |
 | SQLModel | Python | `../sqlmodel-primer` | Pending | — | — |
 | ZeroMQ | Python | `../zeromq-primer` | Pending | — | — |
+<!-- END GENERATED CATALOG -->
 
 ## Policy
 

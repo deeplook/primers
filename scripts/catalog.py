@@ -108,21 +108,74 @@ def render_rows(primers: list[dict[str, object]]) -> str:
     return "\n".join(render_row(primer) for primer in primers)
 
 
+BEGIN_MARKER = "<!-- BEGIN GENERATED CATALOG -->"
+END_MARKER = "<!-- END GENERATED CATALOG -->"
+TABLE_HEADER = (
+    "| Primer | Language | Local path | Repository | CI | Latest release |\n"
+    "|---|---|---|---|---|---|"
+)
+
+
+def render_table(primers: list[dict[str, object]]) -> str:
+    return f"{TABLE_HEADER}\n{render_rows(primers)}"
+
+
+def generated_section(primers: list[dict[str, object]]) -> str:
+    return f"{BEGIN_MARKER}\n{render_table(primers)}\n{END_MARKER}"
+
+
+def replace_generated_section(source: str, table: str) -> str:
+    begin = source.find(BEGIN_MARKER)
+    end = source.find(END_MARKER)
+    if begin == -1 or end == -1 or end < begin:
+        raise CatalogError("README is missing generated catalog markers")
+    end += len(END_MARKER)
+    replacement = f"{BEGIN_MARKER}\n{table}\n{END_MARKER}"
+    return source[:begin] + replacement + source[end:]
+
+
+def check_generated_section(source: str, table: str) -> None:
+    begin = source.find(BEGIN_MARKER)
+    end = source.find(END_MARKER)
+    if begin == -1 or end == -1 or end < begin:
+        raise CatalogError("README is missing generated catalog markers")
+    current = source[begin : end + len(END_MARKER)]
+    expected = f"{BEGIN_MARKER}\n{table}\n{END_MARKER}"
+    if current != expected:
+        raise CatalogError(
+            "README catalog table is stale; run `make catalog-update`"
+        )
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Validate and render primer catalog.toml")
-    parser.add_argument("command", choices=["validate", "render"])
+    parser.add_argument(
+        "command",
+        choices=["validate", "render", "check-readme", "update-readme"],
+    )
     args = parser.parse_args(argv)
     try:
         primers = load_catalog(CATALOG_PATH)
         receipt = validate_primers(primers)
+        if args.command == "validate":
+            print(receipt)
+            return 0
+        if args.command == "render":
+            print(render_rows(primers))
+            return 0
+        table = render_table(primers)
+        if args.command == "check-readme":
+            check_generated_section(README_PATH.read_text(encoding="utf-8"), table)
+            print("README catalog table matches catalog.toml.")
+            return 0
+        updated = replace_generated_section(README_PATH.read_text(encoding="utf-8"), table)
+        README_PATH.write_text(updated, encoding="utf-8")
+        print("Updated README catalog table from catalog.toml.")
+        return 0
     except CatalogError as exc:
         print(str(exc), file=sys.stderr)
         return 1
-    if args.command == "validate":
-        print(receipt)
-        return 0
-    print(render_rows(primers))
-    return 0
+
 
 
 if __name__ == "__main__":

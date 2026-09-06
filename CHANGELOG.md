@@ -8,3 +8,4 @@
 - Made every primer record carry an explicit title and local or published
   status.
 - Added a dependency-free catalog validator and Markdown renderer.
+- Generated the README catalog table from `catalog.toml`.

@@ -69,5 +69,45 @@ class RenderCatalogTests(unittest.TestCase):
         self.assertNotIn("deeplook/rag-primer", rows)
 
 
+class ReadmeCatalogTests(unittest.TestCase):
+    def test_generated_table_includes_header_and_one_row_per_primer(self) -> None:
+        primers = catalog.load_catalog(ROOT / "catalog.toml")
+        table = catalog.render_table(primers)
+        lines = table.splitlines()
+        self.assertEqual(
+            lines[0],
+            "| Primer | Language | Local path | Repository | CI | Latest release |",
+        )
+        self.assertEqual(lines[1], "|---|---|---|---|---|---|")
+        self.assertEqual(len(lines) - 2, len(primers))
+
+    def test_update_readme_replaces_only_the_marked_section(self) -> None:
+        primers = [local("sqlite", "SQLite")]
+        source = (
+            "Intro\n"
+            "\n"
+            "<!-- BEGIN GENERATED CATALOG -->\n"
+            "old table\n"
+            "<!-- END GENERATED CATALOG -->\n"
+            "\n"
+            "Policy\n"
+        )
+        updated = catalog.replace_generated_section(source, catalog.render_table(primers))
+        self.assertTrue(updated.startswith("Intro\n"))
+        self.assertTrue(updated.endswith("Policy\n"))
+        self.assertIn("| SQLite | Python | `../sqlite-primer` | Pending | — | — |", updated)
+        self.assertNotIn("old table", updated)
+
+    def test_check_readme_rejects_stale_generated_section(self) -> None:
+        primers = [local("sqlite", "SQLite")]
+        stale = (
+            "<!-- BEGIN GENERATED CATALOG -->\n"
+            "stale\n"
+            "<!-- END GENERATED CATALOG -->\n"
+        )
+        with self.assertRaisesRegex(catalog.CatalogError, "README catalog table is stale"):
+            catalog.check_generated_section(stale, catalog.render_table(primers))
+
+
 if __name__ == "__main__":
     unittest.main()

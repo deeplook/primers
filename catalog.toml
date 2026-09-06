@@ -39,13 +39,6 @@ path = "../duckdb-primer"
 status = "local"
 
 [[primer]]
-name = "ep133ko2"
-title = "EP-133 K.O.II"
-language = "Python"
-path = "../ep133ko2-primer"
-status = "local"
-
-[[primer]]
 name = "fastapi"
 title = "FastAPI"
 language = "Python"

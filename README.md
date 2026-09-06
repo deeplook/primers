@@ -13,7 +13,6 @@ Each primer owns its dependencies, examples, tests, and release cadence.
 | Dagster | Python | `../dagster-primer` | Pending | — | — |
 | dbt | Python | `../dbt-primer` | Pending | — | — |
 | DuckDB | Python | `../duckdb-primer` | Pending | — | — |
-| EP-133 K.O.II | Python | `../ep133ko2-primer` | Pending | — | — |
 | FastAPI | Python | `../fastapi-primer` | Pending | — | — |
 | gRPC | Python | `../grpc-primer` | Pending | — | — |
 | Hugging Face Hub | Python | `../huggingface-primer` | Pending | — | — |

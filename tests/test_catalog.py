@@ -37,7 +37,7 @@ class ValidateCatalogTests(unittest.TestCase):
     def test_current_catalog_is_valid(self) -> None:
         primers = catalog.load_catalog(ROOT / "catalog.toml")
         receipt = catalog.validate_primers(primers)
-        self.assertEqual(receipt, "Validated 26 primers: 5 published, 21 local.")
+        self.assertEqual(receipt, "Validated 25 primers: 5 published, 20 local.")
 
     def test_duplicate_name_is_rejected(self) -> None:
         primers = [local("nats", "NATS"), local("nats", "NATS Clone")]

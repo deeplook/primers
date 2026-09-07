@@ -16,3 +16,4 @@
 - Removed the maintainer policy section from the README so the catalog
   page stays reader-facing.
 - Dropped the EP-133 K.O.II primer from the catalog.
+- Simplified the catalog table to repository, CI, and release columns.

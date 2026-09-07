@@ -86,8 +86,6 @@ def validate_primers(primers: list[dict[str, object]]) -> str:
 
 def render_row(primer: dict[str, object]) -> str:
     title = str(primer["title"])
-    language = str(primer["language"])
-    path = str(primer["path"])
     if primer["status"] == "published":
         repository = str(primer["repository"])
         workflow = str(primer["ci_workflow"])
@@ -101,7 +99,7 @@ def render_row(primer: dict[str, object]) -> str:
         repository_cell = "Pending"
         ci_cell = "—"
         release_cell = "—"
-    return f"| {title} | {language} | `{path}` | {repository_cell} | {ci_cell} | {release_cell} |"
+    return f"| {title} | {repository_cell} | {ci_cell} | {release_cell} |"
 
 
 def render_rows(primers: list[dict[str, object]]) -> str:
@@ -111,8 +109,8 @@ def render_rows(primers: list[dict[str, object]]) -> str:
 BEGIN_MARKER = "<!-- BEGIN GENERATED CATALOG -->"
 END_MARKER = "<!-- END GENERATED CATALOG -->"
 TABLE_HEADER = (
-    "| Primer | Language | Local path | Repository | CI | Latest release |\n"
-    "|---|---|---|---|---|---|"
+    "| Primer | Repository | CI | Latest release |\n"
+    "|---|---|---|---|"
 )
 
 

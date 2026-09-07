@@ -65,7 +65,7 @@ class RenderCatalogTests(unittest.TestCase):
         self.assertEqual(len(rows.splitlines()), len(primers))
         for name in ("agents", "nats", "openai", "pyspark", "ray"):
             self.assertIn(f"https://github.com/deeplook/{name}-primer", rows)
-        self.assertIn("| RAG | Python | `../rag-primer` | Pending | — | — |", rows)
+        self.assertIn("| RAG | Pending | — | — |", rows)
         self.assertNotIn("deeplook/rag-primer", rows)
 
 
@@ -76,9 +76,9 @@ class ReadmeCatalogTests(unittest.TestCase):
         lines = table.splitlines()
         self.assertEqual(
             lines[0],
-            "| Primer | Language | Local path | Repository | CI | Latest release |",
+            "| Primer | Repository | CI | Latest release |",
         )
-        self.assertEqual(lines[1], "|---|---|---|---|---|---|")
+        self.assertEqual(lines[1], "|---|---|---|---|")
         self.assertEqual(len(lines) - 2, len(primers))
 
     def test_update_readme_replaces_only_the_marked_section(self) -> None:
@@ -95,7 +95,7 @@ class ReadmeCatalogTests(unittest.TestCase):
         updated = catalog.replace_generated_section(source, catalog.render_table(primers))
         self.assertTrue(updated.startswith("Intro\n"))
         self.assertTrue(updated.endswith("Policy\n"))
-        self.assertIn("| SQLite | Python | `../sqlite-primer` | Pending | — | — |", updated)
+        self.assertIn("| SQLite | Pending | — | — |", updated)
         self.assertNotIn("old table", updated)
 
     def test_check_readme_rejects_stale_generated_section(self) -> None:

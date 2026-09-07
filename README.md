@@ -3,8 +3,6 @@
 An index of small, self-contained learning repositories, mostly in Python.
 Each primer owns its dependencies, examples, tests, and release cadence.
 
-## Local collection
-
 <!-- BEGIN GENERATED CATALOG -->
 | Primer | Repository | CI | Latest release |
 |---|---|---|---|

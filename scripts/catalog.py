@@ -68,17 +68,16 @@ def validate_primers(primers: list[dict[str, object]]) -> str:
                 raise CatalogError(f"local primer {name} has publication fields")
             local += 1
             continue
-        missing = [key for key in PUBLICATION_FIELDS if key not in present_publication]
-        if missing:
-            raise CatalogError(f"published primer {name} missing {missing[0]}")
+        if "repository" not in present_publication:
+            raise CatalogError(f"published primer {name} missing repository")
         repository = _string_field(primer, "repository") or ""
         if not GITHUB_REPOSITORY.fullmatch(repository):
             raise CatalogError(f"published primer {name} has invalid repository")
-        workflow = _string_field(primer, "ci_workflow") or ""
-        if not WORKFLOW_FILE.fullmatch(workflow):
+        workflow = _string_field(primer, "ci_workflow")
+        if workflow is not None and not WORKFLOW_FILE.fullmatch(workflow):
             raise CatalogError(f"published primer {name} has invalid ci_workflow")
-        release = _string_field(primer, "release") or ""
-        if not RELEASE_TAG.fullmatch(release):
+        release = _string_field(primer, "release")
+        if release is not None and not RELEASE_TAG.fullmatch(release):
             raise CatalogError(f"published primer {name} has invalid release")
         published += 1
     return f"Validated {len(primers)} primers: {published} published, {local} local."
@@ -88,13 +87,20 @@ def render_row(primer: dict[str, object]) -> str:
     title = str(primer["title"])
     if primer["status"] == "published":
         repository = str(primer["repository"])
-        workflow = str(primer["ci_workflow"])
-        release = str(primer["release"])
+        workflow = _string_field(primer, "ci_workflow")
+        release = _string_field(primer, "release")
         repository_cell = f"[GitHub]({repository})"
-        badge = f"{repository}/actions/workflows/{workflow}/badge.svg"
-        workflow_url = f"{repository}/actions/workflows/{workflow}"
-        ci_cell = f"[![CI]({badge})]({workflow_url})"
-        release_cell = f"[{release}]({repository}/releases/tag/{release})"
+        if workflow is None:
+            ci_cell = "—"
+        else:
+            badge = f"{repository}/actions/workflows/{workflow}/badge.svg"
+            workflow_url = f"{repository}/actions/workflows/{workflow}"
+            ci_cell = f"[![CI]({badge})]({workflow_url})"
+        release_cell = (
+            f"[{release}]({repository}/releases/tag/{release})"
+            if release is not None
+            else "—"
+        )
     else:
         repository_cell = "Pending"
         ci_cell = "—"

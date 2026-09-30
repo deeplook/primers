@@ -37,7 +37,7 @@ class ValidateCatalogTests(unittest.TestCase):
     def test_current_catalog_is_valid(self) -> None:
         primers = catalog.load_catalog(ROOT / "catalog.toml")
         receipt = catalog.validate_primers(primers)
-        self.assertEqual(receipt, "Validated 25 primers: 5 published, 20 local.")
+        self.assertEqual(receipt, "Validated 25 primers: 9 published, 16 local.")
 
     def test_duplicate_name_is_rejected(self) -> None:
         primers = [local("nats", "NATS"), local("nats", "NATS Clone")]
@@ -50,11 +50,18 @@ class ValidateCatalogTests(unittest.TestCase):
         with self.assertRaisesRegex(catalog.CatalogError, "local primer rag has publication fields"):
             catalog.validate_primers([primer])
 
-    def test_published_record_missing_required_field_is_rejected(self) -> None:
-        primer = published("openai", "OpenAI API")
+    def test_published_record_can_omit_workflow_and_release(self) -> None:
+        primer = published("duckdb", "DuckDB")
+        del primer["ci_workflow"]
         del primer["release"]
-        with self.assertRaisesRegex(catalog.CatalogError, "published primer openai missing release"):
-            catalog.validate_primers([primer])
+        self.assertEqual(
+            catalog.validate_primers([primer]),
+            "Validated 1 primers: 1 published, 0 local.",
+        )
+        self.assertEqual(
+            catalog.render_row(primer),
+            "| DuckDB | [GitHub](https://github.com/deeplook/duckdb-primer) | — | — |",
+        )
 
 
 class RenderCatalogTests(unittest.TestCase):

@@ -7,14 +7,14 @@ Each primer owns its dependencies, examples, tests, and release cadence.
 | Primer | Repository | CI | Latest release |
 |---|---|---|---|
 | Blender | Pending | — | — |
-| Agents SDK | [GitHub](https://github.com/deeplook/agents-primer) | [![CI](https://github.com/deeplook/agents-primer/actions/workflows/check.yml/badge.svg)](https://github.com/deeplook/agents-primer/actions/workflows/check.yml) | [v0.1.0](https://github.com/deeplook/agents-primer/releases/tag/v0.1.0) |
+| Agents SDK | [GitHub](https://github.com/deeplook/agents-primer) | [![CI](https://github.com/deeplook/agents-primer/actions/workflows/check.yml/badge.svg)](https://github.com/deeplook/agents-primer/actions/workflows/check.yml) | [v0.2.0](https://github.com/deeplook/agents-primer/releases/tag/v0.2.0) |
 | Dagster | Pending | — | — |
 | dbt | Pending | — | — |
-| DuckDB | Pending | — | — |
-| FastAPI | Pending | — | — |
+| DuckDB | [GitHub](https://github.com/deeplook/duckdb-primer) | — | — |
+| FastAPI | [GitHub](https://github.com/deeplook/fastapi-primer) | — | — |
 | gRPC | Pending | — | — |
 | Hugging Face Hub | Pending | — | — |
-| Kafka | Pending | — | — |
+| Kafka | [GitHub](https://github.com/deeplook/kafka-primer) | [![CI](https://github.com/deeplook/kafka-primer/actions/workflows/ci.yml/badge.svg)](https://github.com/deeplook/kafka-primer/actions/workflows/ci.yml) | — |
 | llama.cpp | Pending | — | — |
 | NATS | [GitHub](https://github.com/deeplook/nats-primer) | [![CI](https://github.com/deeplook/nats-primer/actions/workflows/ci.yml/badge.svg)](https://github.com/deeplook/nats-primer/actions/workflows/ci.yml) | [v0.1.0](https://github.com/deeplook/nats-primer/releases/tag/v0.1.0) |
 | OpenAI API | [GitHub](https://github.com/deeplook/openai-primer) | [![CI](https://github.com/deeplook/openai-primer/actions/workflows/check.yml/badge.svg)](https://github.com/deeplook/openai-primer/actions/workflows/check.yml) | [v0.1.0](https://github.com/deeplook/openai-primer/releases/tag/v0.1.0) |
@@ -30,5 +30,5 @@ Each primer owns its dependencies, examples, tests, and release cadence.
 | Rust | Pending | — | — |
 | SQLite | Pending | — | — |
 | SQLModel | Pending | — | — |
-| ZeroMQ | Pending | — | — |
+| ZeroMQ | [GitHub](https://github.com/deeplook/zeromq-primer) | [![CI](https://github.com/deeplook/zeromq-primer/actions/workflows/ci.yml/badge.svg)](https://github.com/deeplook/zeromq-primer/actions/workflows/ci.yml) | — |
 <!-- END GENERATED CATALOG -->

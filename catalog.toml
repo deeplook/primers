@@ -74,7 +74,7 @@ ci_workflow = "ci.yml"
 name = "llama-cpp"
 title = "llama.cpp"
 language = "Python"
-path = "../llama-cpp-primer"
+path = "../llamacpp-primer"
 status = "local"
 
 [[primer]]
